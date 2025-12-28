@@ -1,13 +1,15 @@
-FROM alpine:3.22
+# seed/Dockerfile
+# Minimal seed image: bundle mailcow nginx templates + web, then seed them into mounted volumes.
 
-RUN apk add --no-cache bash git rsync openssl coreutils
+FROM alpine:3.20
 
-# Pull mailcow repo at build-time and stash required static assets
-RUN git clone --depth 1 https://github.com/mailcow/mailcow-dockerized.git /src \
- && mkdir -p /seed/data/conf /seed/data/assets /seed/data \
- && cp -a /src/data/conf/nginx /seed/data/conf/nginx \
- && cp -a /src/data/web /seed/data/web \
- && rm -rf /src
+RUN apk add --no-cache bash coreutils openssl
+
+# Put your prepared assets here in the build context:
+#   seed/conf-nginx/...
+#   seed/web/...
+COPY conf-nginx /seed/conf-nginx
+COPY web       /seed/web
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

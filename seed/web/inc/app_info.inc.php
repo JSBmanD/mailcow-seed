@@ -1,0 +1,11 @@
+<?php
+  $MAILCOW_GIT_VERSION="2025-12a";
+  $MAILCOW_LAST_GIT_VERSION="";
+  $MAILCOW_GIT_OWNER="mailcow";
+  $MAILCOW_GIT_REPO="mailcow-dockerized";
+  $MAILCOW_GIT_URL="https://github.com/mailcow/mailcow-dockerized";
+  $MAILCOW_GIT_COMMIT="e8d9315d4ad6ae886b8146f618df1813db546254";
+  $MAILCOW_GIT_COMMIT_DATE="2025-12-12 14:08:21 +0100";
+  $MAILCOW_BRANCH="master";
+  $MAILCOW_UPDATEDAT=1766895356;
+?>
